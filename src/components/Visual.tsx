@@ -6,8 +6,6 @@ const SlideWrap = styled.div`
   position: relative;
 `;
 const SlideBox = styled.div`
-  width: 100%;
-  height: 920px;
   display: flex;
   justify-content: center;
   align-items: center;

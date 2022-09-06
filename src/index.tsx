@@ -1,19 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { RecoilRoot } from 'recoil';
-import { ThemeProvider } from 'styled-components';
-import App from './App';
-import { darkTheme } from './theme';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RecoilRoot } from "recoil";
+import { ThemeProvider } from "styled-components";
+import App from "./App";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <ThemeProvider theme={darkTheme}>
-        <App />
-      </ThemeProvider>
+      <App />
     </RecoilRoot>
   </React.StrictMode>
 );

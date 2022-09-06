@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import Attachment from "./components/Attachment";
 import Benefit from "./components/Benefit";
 import Header from "./components/Header";
+import Review from "./components/Review";
 import Visual from "./components/Visual";
 
 const GlobalStyle = createGlobalStyle`
@@ -72,6 +74,8 @@ function App() {
       <Header></Header>
       <Visual></Visual>
       <Benefit></Benefit>
+      <Attachment></Attachment>
+      <Review></Review>
     </>
   );
 }
