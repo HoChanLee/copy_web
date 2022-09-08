@@ -14,7 +14,7 @@ const SlideBox = styled.div`
 const SearchWrap = styled.form`
   position: absolute;
   left: 0;
-  bottom: 60px;
+  bottom: 180px;
   z-index: 10;
   width: 100%;
   padding: 0 20px;

@@ -5,7 +5,7 @@ interface Props {
 }
 
 const BenefitWrapper = styled.div`
-  padding: 100px 0 60px;
+  padding: 100px 20px 60px;
 `;
 const BenefitTxt = styled.div`
   text-align: center;
@@ -49,6 +49,10 @@ const BenefitBox = styled.div`
   &:hover {
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
     transform: translateX(-100%) rotateY(-180deg);
+  }
+  @media screen and (max-width: 700px) {
+    width: 100%;
+    height: 260px;
   }
 `;
 const Front = styled.div<Props>`
@@ -105,6 +109,9 @@ const Back = styled.div`
     border: 1px solid #000;
     line-height: 40px;
     width: 150px;
+  }
+  @media screen and (max-width: 700px) {
+    padding: 40px 0;
   }
 `;
 const BackImg = styled.div``;

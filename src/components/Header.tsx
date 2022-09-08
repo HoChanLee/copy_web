@@ -57,7 +57,7 @@ const NavBtn = styled.div`
       display: block;
       width: 30px;
       height: 4px;
-      background: #000;
+      background: #fff;
     }
   }
 `;

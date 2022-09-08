@@ -6,6 +6,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
+interface props {
+  arrowLeft: string;
+  rotate: string;
+}
+
 const ReviewWrapper = styled.div`
   padding: 80px 0;
 `;
@@ -38,42 +43,24 @@ const SlideNav = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const SlidePrevBtn = styled.div`
+const SlideNavBtn = styled.div<props>`
   width: 36px;
   height: 36px;
   background-color: #f0cf18;
   border-radius: 18px;
   position: relative;
   margin: 0 10px;
+  cursor: pointer;
   &:after {
     position: absolute;
-    left: 12px;
+    left: ${(props) => props.arrowLeft};
     top: 12px;
     content: "";
     width: 10px; /* 사이즈 */
     height: 10px; /* 사이즈 */
     border-top: 2px solid #fff; /* 선 두께 */
     border-right: 2px solid #fff; /* 선 두께 */
-    transform: rotate(225deg); /* 각도 */
-  }
-`;
-const SlideNextBtn = styled.div`
-  width: 36px;
-  height: 36px;
-  background-color: #f0cf18;
-  border-radius: 18px;
-  position: relative;
-  margin: 0 10px;
-  &:after {
-    position: absolute;
-    left: 8px;
-    top: 12px;
-    content: "";
-    width: 10px; /* 사이즈 */
-    height: 10px; /* 사이즈 */
-    border-top: 2px solid #fff; /* 선 두께 */
-    border-right: 2px solid #fff; /* 선 두께 */
-    transform: rotate(45deg); /* 각도 */
+    transform: ${(props) => props.rotate}; /* 각도 */
   }
 `;
 
@@ -81,11 +68,22 @@ function Review() {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
 
+  const swiperParams = {
+    navigation: {
+      prevEl: navigationPrevRef.current,
+      nextEl: navigationNextRef.current,
+    },
+    onbeforeprint: (swiper: any) => {
+      swiper.params.navigation.prevEl = navigationPrevRef.current;
+      swiper.params.navigation.nextEl = navigationNextRef.current;
+    },
+  };
   return (
     <ReviewWrapper>
       <ReviewInner>
         <ReviewTit>운동 성공후기</ReviewTit>
         <Swiper
+          {...swiperParams}
           spaceBetween={0}
           slidesPerView={1}
           loop={true}
@@ -135,8 +133,16 @@ function Review() {
             </SlideBox>
           </SwiperSlide>
           <SlideNav>
-            <SlidePrevBtn ref={navigationPrevRef} />
-            <SlideNextBtn ref={navigationNextRef} />
+            <SlideNavBtn
+              arrowLeft="14px"
+              rotate="rotate(225deg)"
+              ref={navigationPrevRef}
+            />
+            <SlideNavBtn
+              arrowLeft="10px"
+              rotate="rotate(45deg)"
+              ref={navigationNextRef}
+            />
           </SlideNav>
         </Swiper>
       </ReviewInner>

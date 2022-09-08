@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 import Attachment from "./components/Attachment";
 import Benefit from "./components/Benefit";
+import BodyApp from "./components/BodyApp";
 import Header from "./components/Header";
+import News from "./components/News";
 import Review from "./components/Review";
 import Visual from "./components/Visual";
 
@@ -76,6 +78,8 @@ function App() {
       <Benefit></Benefit>
       <Attachment></Attachment>
       <Review></Review>
+      <BodyApp></BodyApp>
+      <News></News>
     </>
   );
 }
